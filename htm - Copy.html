@@ -1,0 +1,2810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>EVOKE MUN 2026 — Built for the Unconvinced.</title>
+
+  <meta
+    name="description"
+    content="EVOKE MUN 2026 — A student-led Model United Nations conference on 28th–29th November 2026. Built for the unconvinced."
+  />
+
+  <meta
+    name="theme-color"
+    content="#2d0527"
+  />
+
+  <meta
+    property="og:title"
+    content="EVOKE MUN 2026"
+  />
+
+  <meta
+    property="og:description"
+    content="Built for the Unconvinced. 28th–29th November 2026."
+  />
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+  <style>
+    /* =========================================================
+       EVOKE MUN 2026
+       Single-file website
+       ========================================================= */
+
+    :root {
+      --plum: #2d0527;
+      --plum-dark: #1d0319;
+      --purple: #44284e;
+      --purple-light: #63466a;
+      --ivory: #f1e6d4;
+      --ivory-soft: #f8f1e7;
+      --ink: #241b22;
+      --muted: #746a70;
+      --line: rgba(45, 5, 39, 0.15);
+      --line-light: rgba(241, 230, 212, 0.2);
+
+      --container: 1240px;
+      --nav-height: 82px;
+
+      --serif: Georgia, "Times New Roman", Times, serif;
+      --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Helvetica, Arial, sans-serif;
+
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* =========================================================
+       RESET
+       ========================================================= */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 24px);
+    }
+
+    body {
+      margin: 0;
+      background: var(--ivory-soft);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    a {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ::selection {
+      color: var(--ivory);
+      background: var(--plum);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--purple-light);
+      outline-offset: 4px;
+    }
+
+    /* =========================================================
+       UTILITIES
+       ========================================================= */
+
+    .container {
+      width: min(calc(100% - 48px), var(--container));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--purple);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .eyebrow--light {
+      color: var(--ivory);
+    }
+
+    .section {
+      padding: 120px 0;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.65fr) minmax(300px, 1fr);
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 72px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--plum);
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6vw, 5.8rem);
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      line-height: 0.92;
+    }
+
+    .section-heading p {
+      max-width: 570px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      min-height: 52px;
+      padding: 0 24px;
+      border: 1px solid transparent;
+      border-radius: 0;
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      transition:
+        background-color 300ms var(--ease),
+        color 300ms var(--ease),
+        border-color 300ms var(--ease),
+        transform 300ms var(--ease);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button--light {
+      color: var(--plum);
+      background: var(--ivory);
+    }
+
+    .button--light:hover {
+      background: #fff9f0;
+    }
+
+    .button--dark {
+      color: var(--ivory);
+      background: var(--plum);
+    }
+
+    .button--dark:hover {
+      background: var(--purple);
+    }
+
+    .button--outline {
+      color: var(--plum);
+      border-color: rgba(45, 5, 39, 0.35);
+      background: transparent;
+    }
+
+    .button--outline:hover {
+      color: var(--ivory);
+      border-color: var(--plum);
+      background: var(--plum);
+    }
+
+    .arrow {
+      display: inline-block;
+      transition: transform 300ms var(--ease);
+    }
+
+    .button:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      height: var(--nav-height);
+      color: var(--ivory);
+      background: rgba(45, 5, 39, 0.97);
+      border-bottom: 1px solid rgba(241, 230, 212, 0.13);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--ivory);
+      font-size: 0.83rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 27px;
+      height: 27px;
+      border: 1px solid var(--ivory);
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-left: auto;
+      margin-right: 30px;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: rgba(241, 230, 212, 0.75);
+      font-size: 0.69rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      transition: color 250ms ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -7px;
+      left: 0;
+      height: 1px;
+      background: var(--ivory);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 300ms var(--ease);
+    }
+
+    .nav-links a:hover {
+      color: var(--ivory);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-register {
+      min-height: 42px;
+      padding: 0 18px;
+      font-size: 0.65rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      color: var(--ivory);
+      background: transparent;
+      border: 1px solid rgba(241, 230, 212, 0.25);
+    }
+
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 1px;
+      margin: 4px auto;
+      background: currentColor;
+      transition: transform 250ms ease;
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      padding: calc(var(--nav-height) + 70px) 0 70px;
+      color: var(--ivory);
+      background: var(--plum);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 16%;
+      right: -160px;
+      width: 460px;
+      height: 460px;
+      border: 1px solid rgba(241, 230, 212, 0.13);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 27%;
+      right: 35px;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(241, 230, 212, 0.11);
+      border-radius: 50%;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 230px;
+      gap: 80px;
+      align-items: end;
+    }
+
+    .hero-copy {
+      max-width: 920px;
+    }
+
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 38px;
+      color: rgba(241, 230, 212, 0.7);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker::before {
+      content: "";
+      width: 48px;
+      height: 1px;
+      background: rgba(241, 230, 212, 0.5);
+    }
+
+    .hero-title {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(5rem, 15vw, 13.5rem);
+      font-weight: 400;
+      letter-spacing: -0.075em;
+      line-height: 0.7;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-title .mun {
+      margin-left: clamp(30px, 8vw, 125px);
+      font-size: 0.63em;
+      line-height: 1;
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 50px;
+      margin-top: 70px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line-light);
+    }
+
+    .hero-tagline {
+      margin: 0;
+      font-size: clamp(1.15rem, 2.2vw, 1.75rem);
+      font-weight: 500;
+      letter-spacing: 0.015em;
+    }
+
+    .hero-date {
+      margin: 0;
+      color: rgba(241, 230, 212, 0.65);
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.7;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    .hero-side {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-left: 1px solid var(--line-light);
+      padding-left: 28px;
+    }
+
+    .hero-side-label {
+      color: rgba(241, 230, 212, 0.5);
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero-side-number {
+      color: var(--ivory);
+      font-family: var(--serif);
+      font-size: 4rem;
+      line-height: 1;
+    }
+
+    .hero-side-note {
+      color: rgba(241, 230, 212, 0.6);
+      font-size: 0.72rem;
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       ABOUT
+       ========================================================= */
+
+    .about {
+      background: var(--ivory-soft);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: clamp(50px, 10vw, 150px);
+      align-items: start;
+    }
+
+    .about-lead {
+      margin: 0;
+      color: var(--plum);
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.65rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1.04;
+    }
+
+    .about-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+
+    .about-copy + .about-copy {
+      margin-top: 22px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 90px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stat {
+      padding: 27px 24px;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat:first-child {
+      padding-left: 0;
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat-value {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--plum);
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      line-height: 1;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       WHY EVOKE
+       ========================================================= */
+
+    .why {
+      color: var(--ivory);
+      background: var(--purple);
+    }
+
+    .why .section-heading h2 {
+      color: var(--ivory);
+    }
+
+    .why .section-heading p {
+      color: rgba(241, 230, 212, 0.68);
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line-light);
+    }
+
+    .experience-item {
+      min-height: 310px;
+      padding: 34px 30px 30px 0;
+      border-right: 1px solid var(--line-light);
+    }
+
+    .experience-item:not(:first-child) {
+      padding-left: 30px;
+    }
+
+    .experience-item:last-child {
+      border-right: 0;
+    }
+
+    .experience-number {
+      display: block;
+      margin-bottom: 65px;
+      color: rgba(241, 230, 212, 0.4);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+
+    .experience-item h3 {
+      margin: 0 0 15px;
+      color: var(--ivory);
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: -0.035em;
+    }
+
+    .experience-item p {
+      margin: 0;
+      color: rgba(241, 230, 212, 0.62);
+      font-size: 0.88rem;
+      line-height: 1.75;
+    }
+
+    /* =========================================================
+       COMMITTEES
+       ========================================================= */
+
+    .committees {
+      background: var(--ivory-soft);
+    }
+
+    .committee-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .committee {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .committee-trigger {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 70px minmax(0, 1fr) 80px;
+      gap: 30px;
+      align-items: center;
+      padding: 27px 0;
+      color: var(--plum);
+      background: transparent;
+      border: 0;
+      text-align: left;
+    }
+
+    .committee-trigger:hover .committee-name {
+      transform: translateX(6px);
+    }
+
+    .committee-number {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .committee-name {
+      font-family: var(--serif);
+      font-size: clamp(1.45rem, 2.6vw, 2.3rem);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      transition: transform 350ms var(--ease);
+    }
+
+    .committee-short {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 0.61rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .committee-icon {
+      justify-self: end;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      font-size: 1.1rem;
+      font-weight: 300;
+      transition:
+        color 250ms ease,
+        background 250ms ease,
+        transform 350ms var(--ease);
+    }
+
+    .committee.open .committee-icon {
+      color: var(--ivory);
+      background: var(--plum);
+      transform: rotate(45deg);
+    }
+
+    .committee-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 450ms var(--ease);
+    }
+
+    .committee.open .committee-content {
+      grid-template-rows: 1fr;
+    }
+
+    .committee-content-inner {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .committee-agenda {
+      display: grid;
+      grid-template-columns: 70px minmax(0, 1fr);
+      gap: 30px;
+      padding: 0 80px 35px 100px;
+    }
+
+    .agenda-label {
+      color: var(--purple);
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .agenda-text {
+      max-width: 850px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .committee--devanagari .committee-name {
+      line-height: 1.3;
+    }
+
+    /* =========================================================
+       REGISTRATION
+       ========================================================= */
+
+    .registrations {
+      color: var(--ivory);
+      background: var(--plum);
+    }
+
+    .registrations .section-heading h2 {
+      color: var(--ivory);
+    }
+
+    .registrations .section-heading p {
+      color: rgba(241, 230, 212, 0.68);
+    }
+
+    .registration-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line-light);
+      border-top: 1px solid var(--line-light);
+      border-left: 1px solid var(--line-light);
+    }
+
+    .registration-card {
+      min-height: 380px;
+      padding: 36px;
+      background: var(--plum);
+      border-right: 1px solid var(--line-light);
+      border-bottom: 1px solid var(--line-light);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .registration-card--wide {
+      grid-column: 1 / -1;
+      min-height: auto;
+    }
+
+    .registration-index {
+      margin-bottom: 55px;
+      color: rgba(241, 230, 212, 0.4);
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+    }
+
+    .registration-card h3 {
+      max-width: 600px;
+      margin: 0 0 14px;
+      color: var(--ivory);
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .registration-description {
+      max-width: 580px;
+      margin: 0;
+      color: rgba(241, 230, 212, 0.64);
+      font-size: 0.87rem;
+      line-height: 1.75;
+    }
+
+    .registration-card .button {
+      margin-top: auto;
+      padding-top: 25px;
+    }
+
+    .registration-card--wide .registration-index {
+      margin-bottom: 25px;
+    }
+
+    .auction-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 25px;
+    }
+
+    .auction-tag {
+      padding: 7px 10px;
+      color: rgba(241, 230, 212, 0.8);
+      border: 1px solid rgba(241, 230, 212, 0.18);
+      font-size: 0.61rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .incentives {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 35px;
+      border-top: 1px solid var(--line-light);
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .incentive {
+      padding: 24px 25px 25px 0;
+      border-right: 1px solid var(--line-light);
+    }
+
+    .incentive:not(:first-child) {
+      padding-left: 25px;
+    }
+
+    .incentive:last-child {
+      border-right: 0;
+    }
+
+    .incentive h4 {
+      margin: 0 0 18px;
+      color: var(--ivory);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+    }
+
+    .incentive ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .incentive li {
+      position: relative;
+      margin: 8px 0;
+      padding-left: 14px;
+      color: rgba(241, 230, 212, 0.6);
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .incentive li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: rgba(241, 230, 212, 0.35);
+    }
+
+    /* =========================================================
+       CTA
+       ========================================================= */
+
+    .cta {
+      padding: 130px 0;
+      color: var(--plum);
+      background: var(--ivory);
+    }
+
+    .cta-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 50px;
+      align-items: end;
+    }
+
+    .cta h2 {
+      max-width: 800px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 8vw, 7.8rem);
+      font-weight: 400;
+      letter-spacing: -0.065em;
+      line-height: 0.88;
+    }
+
+    .cta-meta {
+      margin: 25px 0 0;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       CONTACT
+       ========================================================= */
+
+    .contact {
+      background: var(--ivory-soft);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-person {
+      padding: 35px 35px 35px 0;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+    }
+
+    .contact-person:nth-child(2) {
+      padding-left: 35px;
+      border-right: 0;
+    }
+
+    .contact-label {
+      display: block;
+      margin-bottom: 35px;
+      color: var(--muted);
+      font-size: 0.61rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .contact-person h3 {
+      margin: 0 0 7px;
+      color: var(--plum);
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    .contact-role {
+      margin: 0 0 17px;
+      color: var(--purple);
+      font-size: 0.67rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contact-phone {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .contact-email {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 35px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-email-label {
+      color: var(--muted);
+      font-size: 0.61rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .contact-email a {
+      color: var(--plum);
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 3vw, 2.5rem);
+      letter-spacing: -0.025em;
+      transition: color 250ms ease;
+    }
+
+    .contact-email a:hover {
+      color: var(--purple);
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      color: var(--ivory);
+      background: var(--plum-dark);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px;
+      padding: 75px 0;
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .footer-brand {
+      color: var(--ivory);
+      font-family: var(--serif);
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      letter-spacing: -0.055em;
+      line-height: 0.9;
+    }
+
+    .footer-date {
+      margin: 20px 0 0;
+      color: rgba(241, 230, 212, 0.5);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .footer-column-label {
+      margin: 0 0 18px;
+      color: rgba(241, 230, 212, 0.4);
+      font-size: 0.61rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 9px;
+    }
+
+    .footer-links a {
+      width: fit-content;
+      color: rgba(241, 230, 212, 0.72);
+      font-size: 0.76rem;
+      transition: color 200ms ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--ivory);
+    }
+
+    .footer-email {
+      color: var(--ivory);
+      font-size: 0.78rem;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 22px 0;
+      color: rgba(241, 230, 212, 0.38);
+      font-size: 0.61rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       REVEAL ANIMATION
+       ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity 700ms var(--ease),
+        transform 700ms var(--ease);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       RESPONSIVE — TABLET
+       ========================================================= */
+
+    @media (max-width: 1000px) {
+      .nav-links {
+        gap: 18px;
+        margin-right: 18px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-side {
+        display: none;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .experience-item:nth-child(2) {
+        border-right: 0;
+      }
+
+      .experience-item:nth-child(3),
+      .experience-item:nth-child(4) {
+        border-top: 1px solid var(--line-light);
+      }
+
+      .experience-item:nth-child(3) {
+        padding-left: 0;
+      }
+
+      .experience-item:nth-child(4) {
+        padding-left: 30px;
+      }
+
+      .registration-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .registration-card--wide {
+        grid-column: auto;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-main > :first-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* =========================================================
+       RESPONSIVE — MOBILE
+       ========================================================= */
+
+    @media (max-width: 720px) {
+      :root {
+        --nav-height: 70px;
+      }
+
+      .container {
+        width: min(calc(100% - 32px), var(--container));
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-heading {
+        display: block;
+        margin-bottom: 48px;
+      }
+
+      .section-heading h2 {
+        margin-bottom: 25px;
+      }
+
+      /* Mobile nav */
+
+      .site-header {
+        height: var(--nav-height);
+      }
+
+      .nav-links {
+        position: fixed;
+        top: var(--nav-height);
+        right: 0;
+        left: 0;
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 15px 16px 25px;
+        background: var(--plum);
+        border-bottom: 1px solid var(--line-light);
+        transform: translateY(-120%);
+        visibility: hidden;
+        transition:
+          transform 350ms var(--ease),
+          visibility 350ms ease;
+      }
+
+      .nav-links.open {
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      .nav-links a {
+        padding: 15px 8px;
+        border-bottom: 1px solid var(--line-light);
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .nav-register {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .menu-toggle.open::before {
+        transform: translateY(5px) rotate(45deg);
+      }
+
+      .menu-toggle.open span {
+        opacity: 0;
+      }
+
+      .menu-toggle.open::after {
+        transform: translateY(-5px) rotate(-45deg);
+      }
+
+      /* Hero */
+
+      .hero {
+        min-height: auto;
+        padding: calc(var(--nav-height) + 70px) 0 65px;
+      }
+
+      .hero-title {
+        font-size: clamp(4.5rem, 22vw, 8rem);
+      }
+
+      .hero-title .mun {
+        margin-left: 20px;
+      }
+
+      .hero-bottom {
+        display: block;
+        margin-top: 55px;
+      }
+
+      .hero-date {
+        margin-top: 30px;
+        text-align: left;
+      }
+
+      /* About */
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 55px;
+      }
+
+      .stat {
+        padding: 22px 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stat:nth-child(2) {
+        border-right: 0;
+      }
+
+      .stat:nth-child(3),
+      .stat:nth-child(4) {
+        border-bottom: 0;
+      }
+
+      .stat:nth-child(3) {
+        padding-left: 0;
+      }
+
+      .stat-value {
+        font-size: 2rem;
+      }
+
+      /* Why */
+
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-item,
+      .experience-item:not(:first-child) {
+        min-height: auto;
+        padding: 28px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--line-light);
+      }
+
+      .experience-item:last-child {
+        border-bottom: 0;
+      }
+
+      .experience-number {
+        margin-bottom: 30px;
+      }
+
+      /* Committees */
+
+      .committee-trigger {
+        grid-template-columns: 38px minmax(0, 1fr) 42px;
+        gap: 15px;
+        padding: 23px 0;
+      }
+
+      .committee-number {
+        align-self: start;
+        padding-top: 4px;
+      }
+
+      .committee-name {
+        font-size: 1.45rem;
+      }
+
+      .committee-agenda {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 0 0 28px 53px;
+      }
+
+      /* Registration */
+
+      .registration-card {
+        min-height: 350px;
+        padding: 28px 24px;
+      }
+
+      .registration-index {
+        margin-bottom: 45px;
+      }
+
+      .incentives {
+        grid-template-columns: 1fr;
+      }
+
+      .incentive,
+      .incentive:not(:first-child) {
+        padding: 22px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--line-light);
+      }
+
+      .incentive:last-child {
+        border-bottom: 0;
+      }
+
+      /* CTA */
+
+      .cta {
+        padding: 85px 0;
+      }
+
+      .cta-inner {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .cta h2 {
+        font-size: clamp(3.3rem, 15vw, 6rem);
+      }
+
+      /* Contact */
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-person,
+      .contact-person:nth-child(2) {
+        padding: 28px 0;
+        border-right: 0;
+      }
+
+      .contact-email {
+        display: block;
+      }
+
+      .contact-email a {
+        display: block;
+        margin-top: 12px;
+      }
+
+      /* Footer */
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding: 60px 0;
+      }
+
+      .footer-main > :first-child {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        display: block;
+      }
+
+      .footer-bottom span {
+        display: block;
+        margin-bottom: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       NAVIGATION
+       ======================================================= -->
+
+  <header class="site-header">
+    <div class="container nav">
+
+      <a href="#home" class="brand" aria-label="EVOKE MUN 2026 home">
+        <span class="brand-mark">E</span>
+        <span>EVOKE MUN 2026</span>
+      </a>
+
+      <nav
+        class="nav-links"
+        id="main-navigation"
+        aria-label="Main navigation"
+      >
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#committees">Committees</a>
+        <a href="#registrations">Registrations</a>
+        <a href="#campus-ambassador">Campus Ambassador</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a
+        href="#registrations"
+        class="button button--light nav-register"
+      >
+        Register Now
+        <span class="arrow">↗</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+      >
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="hero" id="home">
+
+      <div class="container hero-grid">
+
+        <div class="hero-copy">
+
+          <div class="hero-kicker">
+            A Student-Led Model United Nations Conference
+          </div>
+
+          <h1 class="hero-title">
+            <span>EVOKE</span>
+            <span class="mun">MUN 2026</span>
+          </h1>
+
+          <div class="hero-bottom">
+
+            <p class="hero-tagline">
+              Built for the Unconvinced.
+            </p>
+
+            <p class="hero-date">
+              28th–29th November 2026<br />
+              In-Person Conference
+            </p>
+
+          </div>
+
+<div
+  style="
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 35px;
+  "
+>
+  <a
+    href="#registrations"
+    class="button button--light"
+  >
+    Register Now
+    <span class="arrow">↗</span>
+  </a>
+
+  <a
+    href="#committees"
+    class="button button--outline"
+    style="
+      color: var(--ivory);
+      border-color: rgba(241, 230, 212, 0.45);
+    "
+  >
+    View Committees
+    <span class="arrow">↓</span>
+  </a>
+</div>
+
+        </div>
+
+        <aside class="hero-side" aria-label="Conference overview">
+
+          <span class="hero-side-label">
+            The Conference
+          </span>
+
+          <span class="hero-side-number">
+            10 Committee
+          </span>
+
+          <span class="hero-side-note">
+            Committees &amp;<br />
+            Special Committees
+          </span>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+
+    <section class="section about" id="about">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <h2>About<br />EVOKE</h2>
+
+          <p>
+            A conference for delegates who question, debate and engage
+            beyond the obvious.
+          </p>
+        </div>
+
+        <div class="about-layout reveal">
+
+          <p class="about-lead">
+            EVOKE MUN 2026 is a student-led Model United Nations
+            conference built to create a space for discussion,
+            diplomacy, strategy and challenging perspectives.
+          </p>
+
+          <div>
+            <p class="about-copy">
+              Designed for those who question, debate and engage
+              beyond the obvious, EVOKE brings together delegates
+              in a conference environment where ideas are tested,
+              positions are challenged and diplomacy takes centre
+              stage.
+            </p>
+
+            <p class="about-copy">
+              The conference is designed around meaningful committee
+              experiences, strong Executive Boards and an engaging
+              environment for delegates.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="stats reveal">
+
+          <div class="stat">
+            <span class="stat-value">28–29</span>
+            <span class="stat-label">November 2026</span>
+          </div>
+
+          <div class="stat">
+            <span class="stat-value">200–220</span>
+            <span class="stat-label">Expected Delegates</span>
+          </div>
+
+          <div class="stat">
+            <span class="stat-value">Student-Led</span>
+            <span class="stat-label">Conference</span>
+          </div>
+
+          <div class="stat">
+            <span class="stat-value">8+</span>
+            <span class="stat-label">Committees</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WHY EVOKE
+         ===================================================== -->
+
+    <section class="section why">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <h2>Why<br />EVOKE?</h2>
+
+          <p>
+            More than speeches. A room where every position has
+            to withstand scrutiny, every negotiation has consequence,
+            and every delegate has a reason to speak.
+          </p>
+
+        </div>
+
+        <div class="experience-grid">
+
+          <article class="experience-item reveal">
+            <span class="experience-number">01</span>
+            <h3>Debate</h3>
+            <p>
+              Engage with complex issues and opposing perspectives.
+            </p>
+          </article>
+
+          <article class="experience-item reveal">
+            <span class="experience-number">02</span>
+            <h3>Diplomacy</h3>
+            <p>
+              Negotiate, collaborate and build consensus.
+            </p>
+          </article>
+
+          <article class="experience-item reveal">
+            <span class="experience-number">03</span>
+            <h3>Strategy</h3>
+            <p>
+              Think beyond speeches and respond to evolving situations.
+            </p>
+          </article>
+
+          <article class="experience-item reveal">
+            <span class="experience-number">04</span>
+            <h3>Experience</h3>
+            <p>
+              A conference designed to be engaging, competitive
+              and memorable.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         COMMITTEES
+         ===================================================== -->
+
+    <section class="section committees" id="committees">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <h2>The<br />Committees</h2>
+
+          <p>
+            Ten rooms. Ten different ways to think, negotiate,
+            investigate and respond.
+          </p>
+
+        </div>
+
+        <div class="committee-list">
+
+          <!-- 01 -->
+          <article class="committee reveal">
+
+            <button
+              class="committee-trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="committee-number">01</span>
+
+              <span class="committee-name">
+                United Nations Security Council
+                <span class="committee-short">UNSC</span>
+              </span>
+
+              <span class="committee-icon" aria-hidden="true">+</span>
+            </button>
+
+            <div class="committee-content">
+              <div class="committee-content-inner">
+                <div class="committee-agenda">
+                  <span class="agenda-label">Agenda</span>
+                  <p class="agenda-text">
+                    Deliberation upon the Possibility of Armed Conflict
+                    in the Taiwan Strait and its Consequences for Global
+                    Security, Trade, and International Relations.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+
+          <!-- 02 -->
+          <article class="committee reveal">
+
+            <button
+              class="committee-trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="committee-number">02</span>
+
+              <span class="committee-name">
+                United Nations Human Rights Council
+                <span class="committee-short">UNHRC</span>
+              </span>
+
+              <span class="committee-icon" aria-hidden="true">+</span>
+            </button>
+
+            <div class="committee-content">
+              <div class="committee-content-inner">
+                <div class="committee-agenda">
+                  <span class="agenda-label">Agenda</span>
+                  <p class="agenda-text">
+                    Addressing the Criminalization of Same-Sex
+                    Relationships in the Context of Cultural, Religious,
+                    and Historical Traditions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+
+          <!-- 03 -->
+          <article class="committee reveal">
+
+            <button
+              class="committee-trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="committee-number">03</span>
+
+              <span class="committee-name">
+                Lok Sabha
+              </span>
+
+              <span class="committee-icon" aria-hidden="true">+</span>
+            </button>
+
+            <div class="committee-content">
+              <div class="committee-content-inner">
+                <div class="committee-agenda">
+                  <span class="agenda-label">Agenda</span>
+                  <p class="agenda-text">
+                    Formulating a comprehensive regulatory framework
+                    for the Gig Economy, Platform Workers' Rights,
+                    and socio-economic safeguards against AI-driven
+                    workforce displacement.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+
+          <!-- 04 -->
+          <article class="committee committee--devanagari reveal">
+
+            <button
+              class="committee-trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="committee-number">04</span>
+
+              <span class="committee-name">
+                क्रांतिकारी बनाम अहिंसक
+              </span>
+
+              <span class="committee-icon" aria-hidden="true">+</span>
+            </button>
+
+            <div class="committee-content">
+              <div class="committee-content-inner">
+                <div class="committee-agenda">
+                  <span class="agenda-label">Agenda</span>
+                  <p class="agenda-text">
+                    Deliberation upon whether India's independence was
+                    won by non-violence, revolutionary resistance, or
+                    the British Empire's inability to sustain colonial
+                    rule.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+
+          <!-- 05 -->
+          <article class="committee reveal">
+
+            <button
+              class="committee-trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="committee-number">05</span>
+
+              <span class="committee-name">
+                26/11
+              </span>
+
+              <span class="committee-icon" aria-hidden="true">+</span>
+            </button>
+
+            <div class="committee-content">
+              <div class="committee-content-inner">
+                <div class="committee-agenda">
+                  <span class="agenda-label">Agenda</span>
+                  <p class="agenda-text">
+                    Mumbai Under Siege: Addressing the immediate
+                    security, intelligence, diplomatic and humanitarian
+                    challenges arising from the coordinated terrorist
+                    attacks on Mumbai, while determining India's
+                    strategic response.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+
+          <!-- 06 -->
+          <article class="committee reveal">
+
+            <button
+              class="committee-trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="committee-number">06</span>
+
+              <span class="committee-name">
+                Pandora Papers
+              </span>
+
+              <span class="committee-icon" aria-hidden="true">+</span>
+            </button>
+
+            <div class="committee-content">
+              <div class="committee-content-inner">
+                <div class="committee-agenda">
+                  <span class="agenda-label">Agenda</span>
+                  <p class="agenda-text">
+                    Investigation into the Role of Financial Secrecy
+                    in Undermining Democratic Institutions and Public
+                    Trust.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+
+          <!-- 07 -->
+          <article class="committee reveal">
+
+            <button
+              class="committee-trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="committee-number">07</span>
+
+              <span class="committee-name">
+                Ramayan
+              </span>
+
+              <span class="committee-icon" aria-hidden="true">+</span>
+            </button>
+
+            <div class="committee-content">
+              <div class="committee-content-inner">
+                <div class="committee-agenda">
+                  <span class="agenda-label">Agenda</span>
+                  <p class="agenda-text">
+                    Vali's Death — Deliberating upon the conflict between
+                    righteous conduct, political intervention and the
+                    ethics of warfare following Rama's intervention in
+                    the conflict between Vali and Sugriva, and determining
+                    the legitimacy of Vali's killing and Sugriva's
+                    subsequent succession.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+
+          <!-- 08 -->
+          <article class="committee reveal">
+
+            <button
+              class="committee-trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="committee-number">08</span>
+
+              <span class="committee-name">
+                IPL Legends
+              </span>
+
+              <span class="committee-short">Mega Auction</span>
+
+              <span class="committee-icon" aria-hidden="true">+</span>
+            </button>
+
+            <div class="committee-content">
+              <div class="committee-content-inner">
+                <div class="committee-agenda">
+                  <span class="agenda-label">Agenda</span>
+                  <p class="agenda-text">
+                    Mega Auction
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+
+          <!-- 09 -->
+          <article class="committee reveal">
+
+            <button
+              class="committee-trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="committee-number">09</span>
+
+              <span class="committee-name">
+                International Press
+              </span>
+
+              <span class="committee-short">
+                Journalism / Photography
+              </span>
+
+              <span class="committee-icon" aria-hidden="true">+</span>
+            </button>
+
+            <div class="committee-content">
+              <div class="committee-content-inner">
+                <div class="committee-agenda">
+                  <span class="agenda-label">Agenda</span>
+                  <p class="agenda-text">
+                    Journalism / Photography
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+
+          <!-- 10 -->
+          <article class="committee reveal">
+
+            <button
+              class="committee-trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="committee-number">10</span>
+
+              <span class="committee-name">
+                FIFA Auction
+              </span>
+
+              <span class="committee-short">Auction</span>
+
+              <span class="committee-icon" aria-hidden="true">+</span>
+            </button>
+
+            <div class="committee-content">
+              <div class="committee-content-inner">
+                <div class="committee-agenda">
+                  <span class="agenda-label">Agenda</span>
+                  <p class="agenda-text">
+                    Auction
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         REGISTRATIONS
+         ===================================================== -->
+
+    <section class="section registrations" id="registrations">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <h2>Registrations</h2>
+
+          <p>
+            Choose your role at EVOKE MUN 2026 and enter the room.
+          </p>
+
+        </div>
+
+        <div class="registration-grid">
+
+          <!-- Individual Delegate -->
+          <article class="registration-card reveal">
+
+            <span class="registration-index">01 / DELEGATE</span>
+
+            <h3>
+              Individual Delegate Registration
+            </h3>
+
+            <p class="registration-description">
+              Register individually for the regular committees of
+              EVOKE MUN 2026.
+            </p>
+
+            <a
+              class="button button--light"
+              data-registration="individual"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Register as an Individual Delegate
+              <span class="arrow">↗</span>
+            </a>
+
+          </article>
+
+
+          <!-- Double Delegation -->
+          <article class="registration-card reveal">
+
+            <span class="registration-index">02 / DELEGATE</span>
+
+            <h3>
+              Double Delegation
+            </h3>
+
+            <p class="registration-description">
+              Register as a double delegation for EVOKE MUN 2026.
+            </p>
+
+            <a
+              class="button button--light"
+              data-registration="double"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Register as Double Delegation
+              <span class="arrow">↗</span>
+            </a>
+
+          </article>
+
+
+          <!-- Auction Committees -->
+          <article class="registration-card reveal">
+
+            <span class="registration-index">03 / SPECIAL</span>
+
+            <h3>
+              Auction Committees
+            </h3>
+
+            <p class="registration-description">
+              Register for the auction-based committees of
+              EVOKE MUN 2026.
+            </p>
+
+            <div class="auction-list">
+              <span class="auction-tag">IPL Legends — Mega Auction</span>
+              <span class="auction-tag">FIFA Auction — Auction</span>
+            </div>
+
+            <a
+              class="button button--light"
+              data-registration="auction"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Register for Auction Committees
+              <span class="arrow">↗</span>
+            </a>
+
+          </article>
+
+
+          <!-- Rapporteurs / In-Room OC -->
+          <article class="registration-card reveal">
+
+            <span class="registration-index">04 / OPERATIONS</span>
+
+            <h3>
+              Rapporteurs / In-Room OC
+            </h3>
+
+            <p class="registration-description">
+              Join EVOKE MUN 2026 as a Rapporteur / In-Room OC and
+              contribute to the smooth functioning, documentation
+              and coordination of committee proceedings.
+            </p>
+
+            <a
+              class="button button--light"
+              data-registration="rapporteur"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Apply as Rapporteur / In-Room OC
+              <span class="arrow">↗</span>
+            </a>
+
+          </article>
+
+
+          <!-- Campus Ambassador -->
+          <article
+            class="registration-card registration-card--wide reveal"
+            id="campus-ambassador"
+          >
+
+            <span class="registration-index">05 / CAMPUS AMBASSADOR</span>
+
+            <h3>
+              Campus Ambassador
+            </h3>
+
+            <p class="registration-description">
+              Represent EVOKE MUN 2026 at your institution and help
+              bring delegates to the conference through the Campus
+              Ambassador Programme.
+            </p>
+
+            <div class="incentives">
+
+              <div class="incentive">
+                <h4>6+ DELEGATES</h4>
+                <ul>
+                  <li>Free Delegation</li>
+                  <li>Campus Ambassador Certificate</li>
+                  <li>Social Media Recognition</li>
+                </ul>
+              </div>
+
+              <div class="incentive">
+                <h4>9+ DELEGATES</h4>
+                <ul>
+                  <li>₹1000 Cash Prize</li>
+                  <li>Free Delegation</li>
+                  <li>Campus Ambassador Certificate</li>
+                  <li>Social Media Recognition</li>
+                  <li>Felicitation During Closing</li>
+                </ul>
+              </div>
+
+              <div class="incentive">
+                <h4>12+ DELEGATES</h4>
+                <ul>
+                  <li>₹1200 Cash Prize</li>
+                  <li>Free Delegation</li>
+                  <li>Campus Ambassador Certificate</li>
+                  <li>Social Media Recognition</li>
+                  <li>Felicitation During Closing</li>
+                  <li>Special Ambassador Award</li>
+                  <li>Gift</li>
+                </ul>
+              </div>
+
+            </div>
+
+            <a
+              class="button button--light"
+              data-registration="ambassador"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="margin-top: 35px;"
+            >
+              Become a Campus Ambassador
+              <span class="arrow">↗</span>
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         REGISTRATION CTA
+         ===================================================== -->
+
+    <section class="cta">
+
+      <div class="container cta-inner">
+
+        <div>
+          <h2 class="reveal">
+            Ready to<br />enter the room?
+          </h2>
+
+          <p class="cta-meta reveal">
+            EVOKE MUN 2026 &nbsp;·&nbsp; 28th–29th November 2026
+          </p>
+        </div>
+
+        <a
+          href="#registrations"
+          class="button button--dark reveal"
+        >
+          Register Now
+          <span class="arrow">↗</span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
+
+    <section class="section contact" id="contact">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <h2>Get in<br />Touch</h2>
+
+          <p>
+            Questions about registrations, delegate affairs or
+            participating at EVOKE? Reach the team directly.
+          </p>
+
+        </div>
+
+        <div class="contact-grid reveal">
+
+          <div class="contact-person">
+
+            <span class="contact-label">
+              Delegate Affairs
+            </span>
+
+            <h3>Siya Dholakia</h3>
+
+            <p class="contact-role">
+              USG Delegate Affairs
+            </p>
+
+            <a
+              href="tel:+919209803823"
+              class="contact-phone"
+            >
+              +91 92098 03823
+            </a>
+
+          </div>
+
+
+          <div class="contact-person">
+
+            <span class="contact-label">
+              Delegate Affairs
+            </span>
+
+            <h3>Palak Dhurve</h3>
+
+            <p class="contact-role">
+              USG Delegate Affairs
+            </p>
+
+            <a
+              href="tel:+919325301738"
+              class="contact-phone"
+            >
+              +91 93253 01738
+            </a>
+
+          </div>
+
+
+          <div class="contact-email">
+
+            <span class="contact-email-label">
+              Email
+            </span>
+
+            <a href="mailto:munevokeofficial@gmail.com">
+              munevokeofficial@gmail.com
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-main">
+
+        <div>
+
+          <div class="footer-brand">
+            EVOKE<br />MUN 2026
+          </div>
+
+          <p class="footer-date">
+            28th–29th November 2026
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <p class="footer-column-label">
+            Navigate
+          </p>
+
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#committees">Committees</a>
+            <a href="#registrations">Registrations</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+        </div>
+
+
+        <div>
+
+          <p class="footer-column-label">
+            Contact
+          </p>
+
+          <a
+            class="footer-email"
+            href="mailto:munevokeofficial@gmail.com"
+          >
+            munevokeofficial@gmail.com
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 EVOKE MUN
+        </span>
+
+        <span>
+          #forthewokes
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+       ======================================================= -->
+
+  <script>
+    /*
+      =========================================================
+      REGISTRATION LINKS
+      =========================================================
+
+      These are the five clearly labelled locations requested
+      for future editing.
+
+      Replace the values below if the registration forms change.
+    */
+
+    const REGISTRATION_LINKS = {
+
+      INDIVIDUAL_COMMITTEE_REGISTRATION_LINK:
+        "https://docs.google.com/forms/d/e/1FAIpQLSebhS7lFn5oLS9foNNQB3LcGIpeTiTXaPBXjMBjX_WTqxwbNg/viewform?usp=preview",
+
+      DOUBLE_DELEGATION_REGISTRATION_LINK:
+        "https://docs.google.com/forms/d/e/1FAIpQLSeWcdrnouXeTxkK0wQf-sq7Y9U3_tb3kXf3uRuCtgtB7x-HGg/viewform?usp=preview",
+
+      AUCTION_COMMITTEE_REGISTRATION_LINK:
+        "https://docs.google.com/forms/d/e/1FAIpQLSeWcdrnouXeTxkK0wQf-sq7Y9U3_tb3kXf3uRuCtgtB7x-HGg/viewform?usp=preview",
+
+      RAPPORTEUR_INROOM_OC_REGISTRATION_LINK:
+        "https://docs.google.com/forms/d/e/1FAIpQLSfwBuQTgvHTXq1UTTPg60XRk9JAS_29XcUd1nupZwqrhkYJFg/viewform?usp=preview",
+
+      CAMPUS_AMBASSADOR_REGISTRATION_LINK:
+        "https://docs.google.com/forms/d/e/1FAIpQLSc1eJoKq3BZ9aSzz9yoLlAtQgGbcYLI7GFHcIZJQaMBg4_NNQ/viewform?usp=preview"
+    };
+
+
+    /*
+      =========================================================
+      CONNECT REGISTRATION BUTTONS
+      =========================================================
+    */
+
+    const registrationMap = {
+      individual:
+        REGISTRATION_LINKS.INDIVIDUAL_COMMITTEE_REGISTRATION_LINK,
+
+      double:
+        REGISTRATION_LINKS.DOUBLE_DELEGATION_REGISTRATION_LINK,
+
+      auction:
+        REGISTRATION_LINKS.AUCTION_COMMITTEE_REGISTRATION_LINK,
+
+      rapporteur:
+        REGISTRATION_LINKS.RAPPORTEUR_INROOM_OC_REGISTRATION_LINK,
+
+      ambassador:
+        REGISTRATION_LINKS.CAMPUS_AMBASSADOR_REGISTRATION_LINK
+    };
+
+    document
+      .querySelectorAll("[data-registration]")
+      .forEach((button) => {
+
+        const type = button.dataset.registration;
+
+        if (registrationMap[type]) {
+          button.href = registrationMap[type];
+        }
+
+      });
+
+
+    /*
+      =========================================================
+      MOBILE NAVIGATION
+      =========================================================
+    */
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const navigation = document.getElementById("main-navigation");
+
+    function closeMenu() {
+      navigation.classList.remove("open");
+      menuToggle.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+    }
+
+    menuToggle.addEventListener("click", () => {
+
+      const isOpen = navigation.classList.toggle("open");
+
+      menuToggle.classList.toggle("open", isOpen);
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Close navigation menu"
+          : "Open navigation menu"
+      );
+
+    });
+
+    navigation
+      .querySelectorAll("a")
+      .forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+    window.addEventListener("resize", () => {
+
+      if (window.innerWidth > 720) {
+        closeMenu();
+      }
+
+    });
+
+
+    /*
+      =========================================================
+      COMMITTEE ACCORDIONS
+      =========================================================
+    */
+
+    const committeeTriggers =
+      document.querySelectorAll(".committee-trigger");
+
+    committeeTriggers.forEach((trigger) => {
+
+      trigger.addEventListener("click", () => {
+
+        const committee = trigger.closest(".committee");
+        const currentlyOpen =
+          committee.classList.contains("open");
+
+        /*
+          Keep the committee list clean by closing other
+          committees when a new one is opened.
+        */
+
+        document
+          .querySelectorAll(".committee.open")
+          .forEach((openCommittee) => {
+
+            if (openCommittee !== committee) {
+
+              openCommittee.classList.remove("open");
+
+              const openTrigger =
+                openCommittee.querySelector(
+                  ".committee-trigger"
+                );
+
+              openTrigger.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+            }
+
+          });
+
+
+        committee.classList.toggle(
+          "open",
+          !currentlyOpen
+        );
+
+        trigger.setAttribute(
+          "aria-expanded",
+          String(!currentlyOpen)
+        );
+
+      });
+
+    });
+
+
+    /*
+      =========================================================
+      SCROLL REVEAL
+      =========================================================
+    */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const revealObserver =
+      new IntersectionObserver(
+        (entries, observer) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("visible");
+
+              observer.unobserve(entry.target);
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.08,
+          rootMargin: "0px 0px -30px 0px"
+        }
+      );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+
+    /*
+      =========================================================
+      ESCAPE KEY
+      =========================================================
+    */
+
+    document.addEventListener("keydown", (event) => {
+
+      if (event.key === "Escape") {
+
+        closeMenu();
+
+        document
+          .querySelectorAll(".committee.open")
+          .forEach((committee) => {
+
+            committee.classList.remove("open");
+
+            const trigger =
+              committee.querySelector(".committee-trigger");
+
+            trigger.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+          });
+
+      }
+
+    });
+
+
+    /*
+      =========================================================
+      SMOOTH INTERNAL LINKS
+      =========================================================
+
+      Native CSS smooth scrolling already handles this, but
+      this prevents navigation jumps in older browsers.
+    */
+
+    document
+      .querySelectorAll('a[href^="#"]')
+      .forEach((link) => {
+
+        link.addEventListener("click", (event) => {
+
+          const targetId =
+            link.getAttribute("href");
+
+          if (
+            targetId &&
+            targetId !== "#" &&
+            document.querySelector(targetId)
+          ) {
+
+            event.preventDefault();
+
+            document
+              .querySelector(targetId)
+              .scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+              });
+
+          }
+
+        });
+
+      });
+  </script>
+
+</body>
+</html>
