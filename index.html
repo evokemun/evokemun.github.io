@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
 
   <meta
@@ -36,6 +38,7 @@
   />
 
   <style>
+
     /* =========================================================
        EVOKE MUN 2026
        Single-file website
@@ -57,11 +60,19 @@
       --nav-height: 82px;
 
       --serif: Georgia, "Times New Roman", Times, serif;
-      --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Helvetica, Arial, sans-serif;
+
+      --sans:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif;
 
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
+
 
     /* =========================================================
        RESET
@@ -116,6 +127,7 @@
       outline: 2px solid var(--purple-light);
       outline-offset: 4px;
     }
+
 
     /* =========================================================
        UTILITIES
@@ -193,6 +205,7 @@
       font-weight: 800;
       letter-spacing: 0.13em;
       text-transform: uppercase;
+
       transition:
         background-color 300ms var(--ease),
         color 300ms var(--ease),
@@ -243,6 +256,7 @@
       transform: translateX(4px);
     }
 
+
     /* =========================================================
        NAVIGATION
        ========================================================= */
@@ -289,7 +303,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 27px;
       margin-left: auto;
       margin-right: 30px;
     }
@@ -297,9 +311,9 @@
     .nav-links a {
       position: relative;
       color: rgba(241, 230, 212, 0.75);
-      font-size: 0.69rem;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.11em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       transition: color 250ms ease;
     }
@@ -353,6 +367,7 @@
       background: currentColor;
       transition: transform 250ms ease;
     }
+
 
     /* =========================================================
        HERO
@@ -500,6 +515,7 @@
       line-height: 1.6;
     }
 
+
     /* =========================================================
        ABOUT
        ========================================================= */
@@ -574,6 +590,7 @@
       text-transform: uppercase;
     }
 
+
     /* =========================================================
        WHY EVOKE
        ========================================================= */
@@ -635,6 +652,7 @@
       font-size: 0.88rem;
       line-height: 1.75;
     }
+
 
     /* =========================================================
        COMMITTEES
@@ -759,8 +777,108 @@
       line-height: 1.3;
     }
 
+
     /* =========================================================
-       REGISTRATION
+       SECRETARIAT
+       ========================================================= */
+
+    .secretariat {
+      background: var(--ivory);
+    }
+
+    .secretariat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .secretariat-member {
+      position: relative;
+      min-height: 210px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--ivory);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      transition:
+        background-color 350ms var(--ease),
+        color 350ms var(--ease);
+    }
+
+    .secretariat-member::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      bottom: -60px;
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(241, 230, 212, 0.15);
+      border-radius: 50%;
+      transform: scale(0);
+      transition: transform 500ms var(--ease);
+    }
+
+    .secretariat-member:hover {
+      color: var(--ivory);
+      background: var(--plum);
+    }
+
+    .secretariat-member:hover::after {
+      transform: scale(1);
+    }
+
+    .secretariat-number {
+      color: var(--muted);
+      font-size: 0.63rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      transition: color 300ms ease;
+    }
+
+    .secretariat-member:hover .secretariat-number {
+      color: rgba(241, 230, 212, 0.5);
+    }
+
+    .secretariat-member h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 8px;
+      color: var(--plum);
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1;
+      transition: color 300ms ease;
+    }
+
+    .secretariat-member:hover h3 {
+      color: var(--ivory);
+    }
+
+    .secretariat-member p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: var(--purple);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      transition: color 300ms ease;
+    }
+
+    .secretariat-member:hover p {
+      color: rgba(241, 230, 212, 0.65);
+    }
+
+
+    /* =========================================================
+       REGISTRATIONS
        ========================================================= */
 
     .registrations {
@@ -786,7 +904,7 @@
     }
 
     .registration-card {
-      min-height: 380px;
+      min-height: 420px;
       padding: 36px;
       background: var(--plum);
       border-right: 1px solid var(--line-light);
@@ -802,7 +920,7 @@
     }
 
     .registration-index {
-      margin-bottom: 55px;
+      margin-bottom: 35px;
       color: rgba(241, 230, 212, 0.4);
       font-size: 0.64rem;
       font-weight: 800;
@@ -828,9 +946,94 @@
       line-height: 1.75;
     }
 
+
+    /* =========================================================
+       PRICING
+       ========================================================= */
+
+    .pricing {
+      margin-top: 30px;
+      margin-bottom: 28px;
+    }
+
+    .limited-offer {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 14px;
+      color: #e6b56b;
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .limited-offer::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #e6b56b;
+      box-shadow: 0 0 0 4px rgba(230, 181, 107, 0.1);
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .normal-price {
+      position: relative;
+      display: inline-block;
+      color: rgba(241, 230, 212, 0.42);
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .normal-price::after {
+      content: "";
+      position: absolute;
+      left: -4px;
+      right: -4px;
+      top: 50%;
+      height: 1.5px;
+      background: rgba(241, 230, 212, 0.6);
+      transform: rotate(-7deg);
+    }
+
+    .normal-label {
+      display: block;
+      margin-top: 7px;
+      color: rgba(241, 230, 212, 0.35);
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .early-price {
+      color: var(--ivory);
+      font-family: var(--serif);
+      font-size: clamp(2.3rem, 4vw, 3.5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .early-price span {
+      color: #e6b56b;
+      font-family: var(--sans);
+      font-size: 0.56em;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     .registration-card .button {
       margin-top: auto;
-      padding-top: 25px;
     }
 
     .registration-card--wide .registration-index {
@@ -905,6 +1108,7 @@
       color: rgba(241, 230, 212, 0.35);
     }
 
+
     /* =========================================================
        CTA
        ========================================================= */
@@ -940,6 +1144,7 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
+
 
     /* =========================================================
        CONTACT
@@ -1028,6 +1233,7 @@
       color: var(--purple);
     }
 
+
     /* =========================================================
        FOOTER
        ========================================================= */
@@ -1105,6 +1311,7 @@
       text-transform: uppercase;
     }
 
+
     /* =========================================================
        REVEAL ANIMATION
        ========================================================= */
@@ -1112,6 +1319,7 @@
     .reveal {
       opacity: 0;
       transform: translateY(20px);
+
       transition:
         opacity 700ms var(--ease),
         transform 700ms var(--ease);
@@ -1122,11 +1330,13 @@
       transform: translateY(0);
     }
 
+
     /* =========================================================
        RESPONSIVE — TABLET
        ========================================================= */
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1100px) {
+
       .nav-links {
         gap: 18px;
         margin-right: 18px;
@@ -1181,13 +1391,16 @@
       .footer-main > :first-child {
         grid-column: 1 / -1;
       }
+
     }
+
 
     /* =========================================================
        RESPONSIVE — MOBILE
        ========================================================= */
 
     @media (max-width: 720px) {
+
       :root {
         --nav-height: 70px;
       }
@@ -1209,6 +1422,7 @@
         margin-bottom: 25px;
       }
 
+
       /* Mobile nav */
 
       .site-header {
@@ -1220,14 +1434,19 @@
         top: var(--nav-height);
         right: 0;
         left: 0;
+
         display: grid;
         gap: 0;
+
         margin: 0;
         padding: 15px 16px 25px;
+
         background: var(--plum);
         border-bottom: 1px solid var(--line-light);
+
         transform: translateY(-120%);
         visibility: hidden;
+
         transition:
           transform 350ms var(--ease),
           visibility 350ms ease;
@@ -1267,6 +1486,7 @@
         transform: translateY(-5px) rotate(-45deg);
       }
 
+
       /* Hero */
 
       .hero {
@@ -1291,6 +1511,7 @@
         margin-top: 30px;
         text-align: left;
       }
+
 
       /* About */
 
@@ -1321,6 +1542,7 @@
         font-size: 2rem;
       }
 
+
       /* Why */
 
       .experience-grid {
@@ -1342,6 +1564,7 @@
       .experience-number {
         margin-bottom: 30px;
       }
+
 
       /* Committees */
 
@@ -1366,15 +1589,44 @@
         padding: 0 0 28px 53px;
       }
 
+
+      /* Secretariat */
+
+      .secretariat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .secretariat-member {
+        min-height: 175px;
+        padding: 25px 22px;
+      }
+
+      .secretariat-member h3 {
+        font-size: 1.8rem;
+      }
+
+
       /* Registration */
 
       .registration-card {
-        min-height: 350px;
+        min-height: 380px;
         padding: 28px 24px;
       }
 
       .registration-index {
-        margin-bottom: 45px;
+        margin-bottom: 30px;
+      }
+
+      .price-row {
+        gap: 14px;
+      }
+
+      .normal-price {
+        font-size: 1.25rem;
+      }
+
+      .early-price {
+        font-size: 2.4rem;
       }
 
       .incentives {
@@ -1392,6 +1644,7 @@
         border-bottom: 0;
       }
 
+
       /* CTA */
 
       .cta {
@@ -1406,6 +1659,7 @@
       .cta h2 {
         font-size: clamp(3.3rem, 15vw, 6rem);
       }
+
 
       /* Contact */
 
@@ -1428,6 +1682,7 @@
         margin-top: 12px;
       }
 
+
       /* Footer */
 
       .footer-main {
@@ -1448,9 +1703,16 @@
         display: block;
         margin-bottom: 8px;
       }
+
     }
 
+
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
+
     @media (prefers-reduced-motion: reduce) {
+
       html {
         scroll-behavior: auto;
       }
@@ -1467,36 +1729,59 @@
         opacity: 1;
         transform: none;
       }
+
     }
+
   </style>
+
 </head>
 
+
 <body>
+
 
   <!-- =======================================================
        NAVIGATION
        ======================================================= -->
 
   <header class="site-header">
+
     <div class="container nav">
 
-      <a href="#home" class="brand" aria-label="EVOKE MUN 2026 home">
+      <a
+        href="#home"
+        class="brand"
+        aria-label="EVOKE MUN 2026 home"
+      >
         <span class="brand-mark">E</span>
         <span>EVOKE MUN 2026</span>
       </a>
+
 
       <nav
         class="nav-links"
         id="main-navigation"
         aria-label="Main navigation"
       >
+
         <a href="#home">Home</a>
+
         <a href="#about">About</a>
+
         <a href="#committees">Committees</a>
+
+        <a href="#secretariat">Secretariat</a>
+
         <a href="#registrations">Registrations</a>
-        <a href="#campus-ambassador">Campus Ambassador</a>
+
+        <a href="#campus-ambassador">
+          Campus Ambassador
+        </a>
+
         <a href="#contact">Contact</a>
+
       </nav>
+
 
       <a
         href="#registrations"
@@ -1505,6 +1790,7 @@
         Register Now
         <span class="arrow">↗</span>
       </a>
+
 
       <button
         class="menu-toggle"
@@ -1518,10 +1804,12 @@
       </button>
 
     </div>
+
   </header>
 
 
   <main>
+
 
     <!-- =====================================================
          HERO
@@ -1537,10 +1825,17 @@
             A Student-Led Model United Nations Conference
           </div>
 
+
           <h1 class="hero-title">
+
             <span>EVOKE</span>
-            <span class="mun">MUN 2026</span>
+
+            <span class="mun">
+              MUN 2026
+            </span>
+
           </h1>
+
 
           <div class="hero-bottom">
 
@@ -1548,71 +1843,82 @@
               Built for the Unconvinced.
             </p>
 
+
             <p class="hero-date">
-              28th–29th November 2026<br />
+              28th–29th November 2026
+              <br />
               In-Person Conference
             </p>
 
           </div>
 
-<div
-  style="
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 35px;
-  "
->
-  <a
-    href="#registrations"
-    class="button button--light"
-  >
-    Register Now
-    <span class="arrow">↗</span>
-  </a>
 
-  <a
-    href="#committees"
-    class="button button--outline"
-    style="
-      color: var(--ivory);
-      border-color: rgba(241, 230, 212, 0.45);
-    "
-  >
-    View Committees
-    <span class="arrow">↓</span>
-  </a>
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 12px;
+              margin-top: 35px;
+            "
+          >
 
-<a
-  href="https://docs.google.com/document/d/1EVbabGFwApmvIMg1QhtWh4lpUQVZSm58abkJJ90aEug/edit?usp=sharing"
-  class="button button--outline"
-  target="_blank"
-  rel="noopener noreferrer"
-  style="
-    color: var(--ivory);
-    border-color: rgba(241, 230, 212, 0.45);
-  "
->
-  View Committee Portfolios
-  <span class="arrow">↗</span>
-</a>
+            <a
+              href="#registrations"
+              class="button button--light"
+            >
+              Register Now
+              <span class="arrow">↗</span>
+            </a>
 
-</div>
+
+            <a
+              href="#committees"
+              class="button button--outline"
+              style="
+                color: var(--ivory);
+                border-color: rgba(241, 230, 212, 0.45);
+              "
+            >
+              View Committees
+              <span class="arrow">↓</span>
+            </a>
+
+
+            <a
+              href="https://docs.google.com/document/d/1EVbabGFwApmvIMg1QhtWh4lpUQVZSm58abkJJ90aEug/edit?usp=sharing"
+              class="button button--outline"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="
+                color: var(--ivory);
+                border-color: rgba(241, 230, 212, 0.45);
+              "
+            >
+              View Committee Portfolios
+              <span class="arrow">↗</span>
+            </a>
+
+          </div>
 
         </div>
 
-        <aside class="hero-side" aria-label="Conference overview">
+
+        <aside
+          class="hero-side"
+          aria-label="Conference overview"
+        >
 
           <span class="hero-side-label">
             The Conference
           </span>
 
           <span class="hero-side-number">
-            10 Committee
+            10
           </span>
 
           <span class="hero-side-note">
-            Committees &amp;<br />
+            Committees &
+            <br />
             Special Committees
           </span>
 
@@ -1627,18 +1933,29 @@
          ABOUT
          ===================================================== -->
 
-    <section class="section about" id="about">
+    <section
+      class="section about"
+      id="about"
+    >
 
       <div class="container">
 
         <div class="section-heading reveal">
-          <h2>About<br />EVOKE</h2>
+
+          <h2>
+            About
+            <br />
+            EVOKE
+          </h2>
+
 
           <p>
             A conference for delegates who question, debate and engage
             beyond the obvious.
           </p>
+
         </div>
+
 
         <div class="about-layout reveal">
 
@@ -1648,7 +1965,9 @@
             diplomacy, strategy and challenging perspectives.
           </p>
 
+
           <div>
+
             <p class="about-copy">
               Designed for those who question, debate and engage
               beyond the obvious, EVOKE brings together delegates
@@ -1657,35 +1976,69 @@
               stage.
             </p>
 
+
             <p class="about-copy">
               The conference is designed around meaningful committee
               experiences, strong Executive Boards and an engaging
               environment for delegates.
             </p>
+
           </div>
 
         </div>
 
+
         <div class="stats reveal">
 
           <div class="stat">
-            <span class="stat-value">28–29</span>
-            <span class="stat-label">November 2026</span>
+
+            <span class="stat-value">
+              28–29
+            </span>
+
+            <span class="stat-label">
+              November 2026
+            </span>
+
           </div>
 
-          <div class="stat">
-            <span class="stat-value">200–220</span>
-            <span class="stat-label">Expected Delegates</span>
-          </div>
 
           <div class="stat">
-            <span class="stat-value">Student-Led</span>
-            <span class="stat-label">Conference</span>
+
+            <span class="stat-value">
+              200–220
+            </span>
+
+            <span class="stat-label">
+              Expected Delegates
+            </span>
+
           </div>
 
+
           <div class="stat">
-            <span class="stat-value">8+</span>
-            <span class="stat-label">Committees</span>
+
+            <span class="stat-value">
+              Student-Led
+            </span>
+
+            <span class="stat-label">
+              Conference
+            </span>
+
+          </div>
+
+
+          <div class="stat">
+
+            <span class="stat-value">
+              8+
+            </span>
+
+            <span class="stat-label">
+              Committees
+            </span>
+
           </div>
 
         </div>
@@ -1705,7 +2058,12 @@
 
         <div class="section-heading reveal">
 
-          <h2>Why<br />EVOKE?</h2>
+          <h2>
+            Why
+            <br />
+            EVOKE?
+          </h2>
+
 
           <p>
             More than speeches. A room where every position has
@@ -1715,39 +2073,75 @@
 
         </div>
 
+
         <div class="experience-grid">
 
           <article class="experience-item reveal">
-            <span class="experience-number">01</span>
-            <h3>Debate</h3>
+
+            <span class="experience-number">
+              01
+            </span>
+
+            <h3>
+              Debate
+            </h3>
+
             <p>
               Engage with complex issues and opposing perspectives.
             </p>
+
           </article>
 
+
           <article class="experience-item reveal">
-            <span class="experience-number">02</span>
-            <h3>Diplomacy</h3>
+
+            <span class="experience-number">
+              02
+            </span>
+
+            <h3>
+              Diplomacy
+            </h3>
+
             <p>
               Negotiate, collaborate and build consensus.
             </p>
+
           </article>
 
+
           <article class="experience-item reveal">
-            <span class="experience-number">03</span>
-            <h3>Strategy</h3>
+
+            <span class="experience-number">
+              03
+            </span>
+
+            <h3>
+              Strategy
+            </h3>
+
             <p>
               Think beyond speeches and respond to evolving situations.
             </p>
+
           </article>
 
+
           <article class="experience-item reveal">
-            <span class="experience-number">04</span>
-            <h3>Experience</h3>
+
+            <span class="experience-number">
+              04
+            </span>
+
+            <h3>
+              Experience
+            </h3>
+
             <p>
               A conference designed to be engaging, competitive
               and memorable.
             </p>
+
           </article>
 
         </div>
@@ -1761,13 +2155,21 @@
          COMMITTEES
          ===================================================== -->
 
-    <section class="section committees" id="committees">
+    <section
+      class="section committees"
+      id="committees"
+    >
 
       <div class="container">
 
         <div class="section-heading reveal">
 
-          <h2>The<br />Committees</h2>
+          <h2>
+            The
+            <br />
+            Committees
+          </h2>
+
 
           <p>
             Ten rooms. Ten different ways to think, negotiate,
@@ -1776,9 +2178,12 @@
 
         </div>
 
+
         <div class="committee-list">
 
+
           <!-- 01 -->
+
           <article class="committee reveal">
 
             <button
@@ -1786,33 +2191,61 @@
               type="button"
               aria-expanded="false"
             >
-              <span class="committee-number">01</span>
 
-              <span class="committee-name">
-                United Nations Security Council
-                <span class="committee-short">UNSC</span>
+              <span class="committee-number">
+                01
               </span>
 
-              <span class="committee-icon" aria-hidden="true">+</span>
+
+              <span class="committee-name">
+
+                United Nations Security Council
+
+                <span class="committee-short">
+                  UNSC
+                </span>
+
+              </span>
+
+
+              <span
+                class="committee-icon"
+                aria-hidden="true"
+              >
+                +
+              </span>
+
             </button>
 
+
             <div class="committee-content">
+
               <div class="committee-content-inner">
+
                 <div class="committee-agenda">
-                  <span class="agenda-label">Agenda</span>
+
+                  <span class="agenda-label">
+                    Agenda
+                  </span>
+
+
                   <p class="agenda-text">
                     Deliberation upon the Possibility of Armed Conflict
                     in the Taiwan Strait and its Consequences for Global
                     Security, Trade, and International Relations.
                   </p>
+
                 </div>
+
               </div>
+
             </div>
 
           </article>
 
 
           <!-- 02 -->
+
           <article class="committee reveal">
 
             <button
@@ -1820,33 +2253,61 @@
               type="button"
               aria-expanded="false"
             >
-              <span class="committee-number">02</span>
 
-              <span class="committee-name">
-                United Nations Human Rights Council
-                <span class="committee-short">UNHRC</span>
+              <span class="committee-number">
+                02
               </span>
 
-              <span class="committee-icon" aria-hidden="true">+</span>
+
+              <span class="committee-name">
+
+                United Nations Human Rights Council
+
+                <span class="committee-short">
+                  UNHRC
+                </span>
+
+              </span>
+
+
+              <span
+                class="committee-icon"
+                aria-hidden="true"
+              >
+                +
+              </span>
+
             </button>
 
+
             <div class="committee-content">
+
               <div class="committee-content-inner">
+
                 <div class="committee-agenda">
-                  <span class="agenda-label">Agenda</span>
+
+                  <span class="agenda-label">
+                    Agenda
+                  </span>
+
+
                   <p class="agenda-text">
                     Addressing the Criminalization of Same-Sex
                     Relationships in the Context of Cultural, Religious,
                     and Historical Traditions.
                   </p>
+
                 </div>
+
               </div>
+
             </div>
 
           </article>
 
 
           <!-- 03 -->
+
           <article class="committee reveal">
 
             <button
@@ -1854,67 +2315,115 @@
               type="button"
               aria-expanded="false"
             >
-              <span class="committee-number">03</span>
+
+              <span class="committee-number">
+                03
+              </span>
+
 
               <span class="committee-name">
                 Lok Sabha
               </span>
 
-              <span class="committee-icon" aria-hidden="true">+</span>
+
+              <span
+                class="committee-icon"
+                aria-hidden="true"
+              >
+                +
+              </span>
+
             </button>
 
+
             <div class="committee-content">
+
               <div class="committee-content-inner">
+
                 <div class="committee-agenda">
-                  <span class="agenda-label">Agenda</span>
+
+                  <span class="agenda-label">
+                    Agenda
+                  </span>
+
+
                   <p class="agenda-text">
                     Formulating a comprehensive regulatory framework
                     for the Gig Economy, Platform Workers' Rights,
                     and socio-economic safeguards against AI-driven
                     workforce displacement.
                   </p>
+
                 </div>
+
               </div>
+
             </div>
 
           </article>
 
 
           <!-- 04 -->
-          <article class="committee committee--devanagari reveal">
+
+          <article
+            class="committee committee--devanagari reveal"
+          >
 
             <button
               class="committee-trigger"
               type="button"
               aria-expanded="false"
             >
-              <span class="committee-number">04</span>
+
+              <span class="committee-number">
+                04
+              </span>
+
 
               <span class="committee-name">
                 क्रांतिकारी बनाम अहिंसक
               </span>
 
-              <span class="committee-icon" aria-hidden="true">+</span>
+
+              <span
+                class="committee-icon"
+                aria-hidden="true"
+              >
+                +
+              </span>
+
             </button>
 
+
             <div class="committee-content">
+
               <div class="committee-content-inner">
+
                 <div class="committee-agenda">
-                  <span class="agenda-label">Agenda</span>
+
+                  <span class="agenda-label">
+                    Agenda
+                  </span>
+
+
                   <p class="agenda-text">
                     Deliberation upon whether India's independence was
                     won by non-violence, revolutionary resistance, or
                     the British Empire's inability to sustain colonial
                     rule.
                   </p>
+
                 </div>
+
               </div>
+
             </div>
 
           </article>
 
 
           <!-- 05 -->
+
           <article class="committee reveal">
 
             <button
@@ -1922,19 +2431,38 @@
               type="button"
               aria-expanded="false"
             >
-              <span class="committee-number">05</span>
+
+              <span class="committee-number">
+                05
+              </span>
+
 
               <span class="committee-name">
                 26/11
               </span>
 
-              <span class="committee-icon" aria-hidden="true">+</span>
+
+              <span
+                class="committee-icon"
+                aria-hidden="true"
+              >
+                +
+              </span>
+
             </button>
 
+
             <div class="committee-content">
+
               <div class="committee-content-inner">
+
                 <div class="committee-agenda">
-                  <span class="agenda-label">Agenda</span>
+
+                  <span class="agenda-label">
+                    Agenda
+                  </span>
+
+
                   <p class="agenda-text">
                     Mumbai Under Siege: Addressing the immediate
                     security, intelligence, diplomatic and humanitarian
@@ -1942,14 +2470,18 @@
                     attacks on Mumbai, while determining India's
                     strategic response.
                   </p>
+
                 </div>
+
               </div>
+
             </div>
 
           </article>
 
 
           <!-- 06 -->
+
           <article class="committee reveal">
 
             <button
@@ -1957,32 +2489,55 @@
               type="button"
               aria-expanded="false"
             >
-              <span class="committee-number">06</span>
+
+              <span class="committee-number">
+                06
+              </span>
+
 
               <span class="committee-name">
                 Pandora Papers
               </span>
 
-              <span class="committee-icon" aria-hidden="true">+</span>
+
+              <span
+                class="committee-icon"
+                aria-hidden="true"
+              >
+                +
+              </span>
+
             </button>
 
+
             <div class="committee-content">
+
               <div class="committee-content-inner">
+
                 <div class="committee-agenda">
-                  <span class="agenda-label">Agenda</span>
+
+                  <span class="agenda-label">
+                    Agenda
+                  </span>
+
+
                   <p class="agenda-text">
                     Investigation into the Role of Financial Secrecy
                     in Undermining Democratic Institutions and Public
                     Trust.
                   </p>
+
                 </div>
+
               </div>
+
             </div>
 
           </article>
 
 
           <!-- 07 -->
+
           <article class="committee reveal">
 
             <button
@@ -1990,19 +2545,38 @@
               type="button"
               aria-expanded="false"
             >
-              <span class="committee-number">07</span>
+
+              <span class="committee-number">
+                07
+              </span>
+
 
               <span class="committee-name">
                 Ramayan
               </span>
 
-              <span class="committee-icon" aria-hidden="true">+</span>
+
+              <span
+                class="committee-icon"
+                aria-hidden="true"
+              >
+                +
+              </span>
+
             </button>
 
+
             <div class="committee-content">
+
               <div class="committee-content-inner">
+
                 <div class="committee-agenda">
-                  <span class="agenda-label">Agenda</span>
+
+                  <span class="agenda-label">
+                    Agenda
+                  </span>
+
+
                   <p class="agenda-text">
                     Vali's Death — Deliberating upon the conflict between
                     righteous conduct, political intervention and the
@@ -2011,14 +2585,18 @@
                     the legitimacy of Vali's killing and Sugriva's
                     subsequent succession.
                   </p>
+
                 </div>
+
               </div>
+
             </div>
 
           </article>
 
 
           <!-- 08 -->
+
           <article class="committee reveal">
 
             <button
@@ -2026,32 +2604,59 @@
               type="button"
               aria-expanded="false"
             >
-              <span class="committee-number">08</span>
 
-              <span class="committee-name">
-                IPL Legends
+              <span class="committee-number">
+                08
               </span>
 
-              <span class="committee-short">Mega Auction</span>
 
-              <span class="committee-icon" aria-hidden="true">+</span>
+              <span class="committee-name">
+
+                IPL Legends
+
+                <span class="committee-short">
+                  Mega Auction
+                </span>
+
+              </span>
+
+
+              <span
+                class="committee-icon"
+                aria-hidden="true"
+              >
+                +
+              </span>
+
             </button>
 
+
             <div class="committee-content">
+
               <div class="committee-content-inner">
+
                 <div class="committee-agenda">
-                  <span class="agenda-label">Agenda</span>
+
+                  <span class="agenda-label">
+                    Agenda
+                  </span>
+
+
                   <p class="agenda-text">
                     Mega Auction
                   </p>
+
                 </div>
+
               </div>
+
             </div>
 
           </article>
 
 
           <!-- 09 -->
+
           <article class="committee reveal">
 
             <button
@@ -2059,34 +2664,59 @@
               type="button"
               aria-expanded="false"
             >
-              <span class="committee-number">09</span>
+
+              <span class="committee-number">
+                09
+              </span>
+
 
               <span class="committee-name">
+
                 International Press
+
+                <span class="committee-short">
+                  Journalism / Photography
+                </span>
+
               </span>
 
-              <span class="committee-short">
-                Journalism / Photography
+
+              <span
+                class="committee-icon"
+                aria-hidden="true"
+              >
+                +
               </span>
 
-              <span class="committee-icon" aria-hidden="true">+</span>
             </button>
 
+
             <div class="committee-content">
+
               <div class="committee-content-inner">
+
                 <div class="committee-agenda">
-                  <span class="agenda-label">Agenda</span>
+
+                  <span class="agenda-label">
+                    Agenda
+                  </span>
+
+
                   <p class="agenda-text">
                     Journalism / Photography
                   </p>
+
                 </div>
+
               </div>
+
             </div>
 
           </article>
 
 
           <!-- 10 -->
+
           <article class="committee reveal">
 
             <button
@@ -2094,26 +2724,52 @@
               type="button"
               aria-expanded="false"
             >
-              <span class="committee-number">10</span>
 
-              <span class="committee-name">
-                FIFA Auction
+              <span class="committee-number">
+                10
               </span>
 
-              <span class="committee-short">Auction</span>
 
-              <span class="committee-icon" aria-hidden="true">+</span>
+              <span class="committee-name">
+
+                FIFA Auction
+
+                <span class="committee-short">
+                  Auction
+                </span>
+
+              </span>
+
+
+              <span
+                class="committee-icon"
+                aria-hidden="true"
+              >
+                +
+              </span>
+
             </button>
 
+
             <div class="committee-content">
+
               <div class="committee-content-inner">
+
                 <div class="committee-agenda">
-                  <span class="agenda-label">Agenda</span>
+
+                  <span class="agenda-label">
+                    Agenda
+                  </span>
+
+
                   <p class="agenda-text">
                     Auction
                   </p>
+
                 </div>
+
               </div>
+
             </div>
 
           </article>
@@ -2126,16 +2782,451 @@
 
 
     <!-- =====================================================
-         REGISTRATIONS
+         SECRETARIAT
          ===================================================== -->
 
-    <section class="section registrations" id="registrations">
+    <section
+      class="section secretariat"
+      id="secretariat"
+    >
 
       <div class="container">
 
         <div class="section-heading reveal">
 
-          <h2>Registrations</h2>
+          <h2>
+            The
+            <br />
+            Secretariat
+          </h2>
+
+
+          <p>
+            The people behind EVOKE MUN 2026 — bringing together
+            ideas, people and every moving part of the conference.
+          </p>
+
+        </div>
+
+
+        <div class="secretariat-grid">
+
+
+          <!-- 01 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              01
+            </span>
+
+            <div>
+
+              <h3>
+                Bianca Trivedi
+              </h3>
+
+              <p>
+                Secretary-General
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 02 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              02
+            </span>
+
+            <div>
+
+              <h3>
+                Randhir Choudhary
+              </h3>
+
+              <p>
+                Deputy Secretary-General
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 03 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              03
+            </span>
+
+            <div>
+
+              <h3>
+                Akshata Wagh
+              </h3>
+
+              <p>
+                Director-General
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 04 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              04
+            </span>
+
+            <div>
+
+              <h3>
+                Aniruddha Palwwe
+              </h3>
+
+              <p>
+                Deputy Director-General
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 05 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              05
+            </span>
+
+            <div>
+
+              <h3>
+                Sanskruti Kumbhare
+              </h3>
+
+              <p>
+                Head of Content Creation
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 06 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              06
+            </span>
+
+            <div>
+
+              <h3>
+                Monarca Dhoke
+              </h3>
+
+              <p>
+                Creative Director
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 07 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              07
+            </span>
+
+            <div>
+
+              <h3>
+                Shourya Maheshgavali
+              </h3>
+
+              <p>
+                Video Editor
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 08 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              08
+            </span>
+
+            <div>
+
+              <h3>
+                Siya Dholakia
+              </h3>
+
+              <p>
+                Delegate Affairs
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 09 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              09
+            </span>
+
+            <div>
+
+              <h3>
+                Palak Dhurve
+              </h3>
+
+              <p>
+                Delegate Affairs
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 10 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              10
+            </span>
+
+            <div>
+
+              <h3>
+                Kritika Nagtode
+              </h3>
+
+              <p>
+                USG Hospitality
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 11 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              11
+            </span>
+
+            <div>
+
+              <h3>
+                Ishwari Lambat
+              </h3>
+
+              <p>
+                USG Hospitality
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 12 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              12
+            </span>
+
+            <div>
+
+              <h3>
+                Navinya Akre
+              </h3>
+
+              <p>
+                USG Operations
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 13 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              13
+            </span>
+
+            <div>
+
+              <h3>
+                Aviral Mandhana
+              </h3>
+
+              <p>
+                Delegate Coordinator
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 14 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              14
+            </span>
+
+            <div>
+
+              <h3>
+                Shirley Waghmare
+              </h3>
+
+              <p>
+                USG Logistics
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 15 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              15
+            </span>
+
+            <div>
+
+              <h3>
+                Vighnesh Thawkar
+              </h3>
+
+              <p>
+                USG Logistics
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 16 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              16
+            </span>
+
+            <div>
+
+              <h3>
+                Sawari Chouhan
+              </h3>
+
+              <p>
+                Head of Finance
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 17 -->
+
+          <article class="secretariat-member reveal">
+
+            <span class="secretariat-number">
+              17
+            </span>
+
+            <div>
+
+              <h3>
+                Anika Tarare
+              </h3>
+
+              <p>
+                Head of Sponsors
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         REGISTRATIONS
+         ===================================================== -->
+
+    <section
+      class="section registrations"
+      id="registrations"
+    >
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <h2>
+            Registrations
+          </h2>
+
 
           <p>
             Choose your role at EVOKE MUN 2026 and enter the room.
@@ -2143,21 +3234,65 @@
 
         </div>
 
+
         <div class="registration-grid">
 
-          <!-- Individual Delegate -->
+
+          <!-- =================================================
+               INDIVIDUAL DELEGATE
+               ================================================= -->
+
           <article class="registration-card reveal">
 
-            <span class="registration-index">01 / DELEGATE</span>
+            <span class="registration-index">
+              01 / DELEGATE
+            </span>
+
 
             <h3>
               Individual Delegate Registration
             </h3>
 
+
             <p class="registration-description">
               Register individually for the regular committees of
               EVOKE MUN 2026.
             </p>
+
+
+            <div class="pricing">
+
+              <span class="limited-offer">
+                Limited Time Offer
+              </span>
+
+
+              <div class="price-row">
+
+                <div>
+
+                  <span class="normal-price">
+                    ₹1,599
+                  </span>
+
+                  <span class="normal-label">
+                    Normal Fee
+                  </span>
+
+                </div>
+
+
+                <div class="early-price">
+                  ₹1,299
+                  <span>
+                    Early Bird
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
 
             <a
               class="button button--light"
@@ -2167,24 +3302,68 @@
               rel="noopener noreferrer"
             >
               Register as an Individual Delegate
-              <span class="arrow">↗</span>
+              <span class="arrow">
+                ↗
+              </span>
             </a>
 
           </article>
 
 
-          <!-- Double Delegation -->
+          <!-- =================================================
+               DOUBLE DELEGATION
+               ================================================= -->
+
           <article class="registration-card reveal">
 
-            <span class="registration-index">02 / DELEGATE</span>
+            <span class="registration-index">
+              02 / DELEGATE
+            </span>
+
 
             <h3>
               Double Delegation
             </h3>
 
+
             <p class="registration-description">
               Register as a double delegation for EVOKE MUN 2026.
             </p>
+
+
+            <div class="pricing">
+
+              <span class="limited-offer">
+                Limited Time Offer
+              </span>
+
+
+              <div class="price-row">
+
+                <div>
+
+                  <span class="normal-price">
+                    ₹3,399
+                  </span>
+
+                  <span class="normal-label">
+                    Normal Fee
+                  </span>
+
+                </div>
+
+
+                <div class="early-price">
+                  ₹2,799
+                  <span>
+                    Early Bird
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
 
             <a
               class="button button--light"
@@ -2194,30 +3373,82 @@
               rel="noopener noreferrer"
             >
               Register as Double Delegation
-              <span class="arrow">↗</span>
+              <span class="arrow">
+                ↗
+              </span>
             </a>
 
           </article>
 
 
-          <!-- Auction Committees -->
+          <!-- =================================================
+               AUCTION COMMITTEES
+               ================================================= -->
+
           <article class="registration-card reveal">
 
-            <span class="registration-index">03 / SPECIAL</span>
+            <span class="registration-index">
+              03 / SPECIAL
+            </span>
+
 
             <h3>
               Auction Committees
             </h3>
+
 
             <p class="registration-description">
               Register for the auction-based committees of
               EVOKE MUN 2026.
             </p>
 
+
             <div class="auction-list">
-              <span class="auction-tag">IPL Legends — Mega Auction</span>
-              <span class="auction-tag">FIFA Auction — Auction</span>
+
+              <span class="auction-tag">
+                IPL Legends — Mega Auction
+              </span>
+
+              <span class="auction-tag">
+                FIFA Auction — Auction
+              </span>
+
             </div>
+
+
+            <div class="pricing">
+
+              <span class="limited-offer">
+                Limited Time Offer
+              </span>
+
+
+              <div class="price-row">
+
+                <div>
+
+                  <span class="normal-price">
+                    ₹3,399
+                  </span>
+
+                  <span class="normal-label">
+                    Normal Fee
+                  </span>
+
+                </div>
+
+
+                <div class="early-price">
+                  ₹2,799
+                  <span>
+                    Early Bird
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
 
             <a
               class="button button--light"
@@ -2227,26 +3458,36 @@
               rel="noopener noreferrer"
             >
               Register for Auction Committees
-              <span class="arrow">↗</span>
+              <span class="arrow">
+                ↗
+              </span>
             </a>
 
           </article>
 
 
-          <!-- Rapporteurs / In-Room OC -->
+          <!-- =================================================
+               RAPPORTEURS / IN-ROOM OC
+               ================================================= -->
+
           <article class="registration-card reveal">
 
-            <span class="registration-index">04 / OPERATIONS</span>
+            <span class="registration-index">
+              04 / OPERATIONS
+            </span>
+
 
             <h3>
               Rapporteurs / In-Room OC
             </h3>
+
 
             <p class="registration-description">
               Join EVOKE MUN 2026 as a Rapporteur / In-Room OC and
               contribute to the smooth functioning, documentation
               and coordination of committee proceedings.
             </p>
+
 
             <a
               class="button button--light"
@@ -2256,23 +3497,32 @@
               rel="noopener noreferrer"
             >
               Apply as Rapporteur / In-Room OC
-              <span class="arrow">↗</span>
+              <span class="arrow">
+                ↗
+              </span>
             </a>
 
           </article>
 
 
-          <!-- Campus Ambassador -->
+          <!-- =================================================
+               CAMPUS AMBASSADOR
+               ================================================= -->
+
           <article
             class="registration-card registration-card--wide reveal"
             id="campus-ambassador"
           >
 
-            <span class="registration-index">05 / CAMPUS AMBASSADOR</span>
+            <span class="registration-index">
+              05 / CAMPUS AMBASSADOR
+            </span>
+
 
             <h3>
               Campus Ambassador
             </h3>
+
 
             <p class="registration-description">
               Represent EVOKE MUN 2026 at your institution and help
@@ -2280,42 +3530,114 @@
               Ambassador Programme.
             </p>
 
+
             <div class="incentives">
 
-              <div class="incentive">
-                <h4>6+ DELEGATES</h4>
-                <ul>
-                  <li>Free Delegation</li>
-                  <li>Campus Ambassador Certificate</li>
-                  <li>Social Media Recognition</li>
-                </ul>
-              </div>
 
               <div class="incentive">
-                <h4>9+ DELEGATES</h4>
+
+                <h4>
+                  6+ DELEGATES
+                </h4>
+
+
                 <ul>
-                  <li>₹1000 Cash Prize</li>
-                  <li>Free Delegation</li>
-                  <li>Campus Ambassador Certificate</li>
-                  <li>Social Media Recognition</li>
-                  <li>Felicitation During Closing</li>
+
+                  <li>
+                    Free Delegation
+                  </li>
+
+                  <li>
+                    Campus Ambassador Certificate
+                  </li>
+
+                  <li>
+                    Social Media Recognition
+                  </li>
+
                 </ul>
+
               </div>
 
+
               <div class="incentive">
-                <h4>12+ DELEGATES</h4>
+
+                <h4>
+                  9+ DELEGATES
+                </h4>
+
+
                 <ul>
-                  <li>₹1200 Cash Prize</li>
-                  <li>Free Delegation</li>
-                  <li>Campus Ambassador Certificate</li>
-                  <li>Social Media Recognition</li>
-                  <li>Felicitation During Closing</li>
-                  <li>Special Ambassador Award</li>
-                  <li>Gift</li>
+
+                  <li>
+                    ₹1000 Cash Prize
+                  </li>
+
+                  <li>
+                    Free Delegation
+                  </li>
+
+                  <li>
+                    Campus Ambassador Certificate
+                  </li>
+
+                  <li>
+                    Social Media Recognition
+                  </li>
+
+                  <li>
+                    Felicitation During Closing
+                  </li>
+
                 </ul>
+
               </div>
+
+
+              <div class="incentive">
+
+                <h4>
+                  12+ DELEGATES
+                </h4>
+
+
+                <ul>
+
+                  <li>
+                    ₹1200 Cash Prize
+                  </li>
+
+                  <li>
+                    Free Delegation
+                  </li>
+
+                  <li>
+                    Campus Ambassador Certificate
+                  </li>
+
+                  <li>
+                    Social Media Recognition
+                  </li>
+
+                  <li>
+                    Felicitation During Closing
+                  </li>
+
+                  <li>
+                    Special Ambassador Award
+                  </li>
+
+                  <li>
+                    Gift
+                  </li>
+
+                </ul>
+
+              </div>
+
 
             </div>
+
 
             <a
               class="button button--light"
@@ -2326,10 +3648,15 @@
               style="margin-top: 35px;"
             >
               Become a Campus Ambassador
-              <span class="arrow">↗</span>
+
+              <span class="arrow">
+                ↗
+              </span>
+
             </a>
 
           </article>
+
 
         </div>
 
@@ -2347,21 +3674,33 @@
       <div class="container cta-inner">
 
         <div>
+
           <h2 class="reveal">
-            Ready to<br />enter the room?
+            Ready to
+            <br />
+            enter the room?
           </h2>
 
+
           <p class="cta-meta reveal">
-            EVOKE MUN 2026 &nbsp;·&nbsp; 28th–29th November 2026
+            EVOKE MUN 2026
+            &nbsp;·&nbsp;
+            28th–29th November 2026
           </p>
+
         </div>
+
 
         <a
           href="#registrations"
           class="button button--dark reveal"
         >
           Register Now
-          <span class="arrow">↗</span>
+
+          <span class="arrow">
+            ↗
+          </span>
+
         </a>
 
       </div>
@@ -2373,13 +3712,21 @@
          CONTACT
          ===================================================== -->
 
-    <section class="section contact" id="contact">
+    <section
+      class="section contact"
+      id="contact"
+    >
 
       <div class="container">
 
         <div class="section-heading reveal">
 
-          <h2>Get in<br />Touch</h2>
+          <h2>
+            Get in
+            <br />
+            Touch
+          </h2>
+
 
           <p>
             Questions about registrations, delegate affairs or
@@ -2388,7 +3735,9 @@
 
         </div>
 
+
         <div class="contact-grid reveal">
+
 
           <div class="contact-person">
 
@@ -2396,11 +3745,16 @@
               Delegate Affairs
             </span>
 
-            <h3>Siya Dholakia</h3>
+
+            <h3>
+              Siya Dholakia
+            </h3>
+
 
             <p class="contact-role">
               USG Delegate Affairs
             </p>
+
 
             <a
               href="tel:+919209803823"
@@ -2418,11 +3772,16 @@
               Delegate Affairs
             </span>
 
-            <h3>Palak Dhurve</h3>
+
+            <h3>
+              Palak Dhurve
+            </h3>
+
 
             <p class="contact-role">
               USG Delegate Affairs
             </p>
+
 
             <a
               href="tel:+919325301738"
@@ -2440,11 +3799,13 @@
               Email
             </span>
 
+
             <a href="mailto:munevokeofficial@gmail.com">
               munevokeofficial@gmail.com
             </a>
 
           </div>
+
 
         </div>
 
@@ -2465,11 +3826,15 @@
 
       <div class="footer-main">
 
+
         <div>
 
           <div class="footer-brand">
-            EVOKE<br />MUN 2026
+            EVOKE
+            <br />
+            MUN 2026
           </div>
+
 
           <p class="footer-date">
             28th–29th November 2026
@@ -2484,12 +3849,36 @@
             Navigate
           </p>
 
-          <nav class="footer-links" aria-label="Footer navigation">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#committees">Committees</a>
-            <a href="#registrations">Registrations</a>
-            <a href="#contact">Contact</a>
+
+          <nav
+            class="footer-links"
+            aria-label="Footer navigation"
+          >
+
+            <a href="#home">
+              Home
+            </a>
+
+            <a href="#about">
+              About
+            </a>
+
+            <a href="#committees">
+              Committees
+            </a>
+
+            <a href="#secretariat">
+              Secretariat
+            </a>
+
+            <a href="#registrations">
+              Registrations
+            </a>
+
+            <a href="#contact">
+              Contact
+            </a>
+
           </nav>
 
         </div>
@@ -2501,6 +3890,7 @@
             Contact
           </p>
 
+
           <a
             class="footer-email"
             href="mailto:munevokeofficial@gmail.com"
@@ -2510,6 +3900,7 @@
 
         </div>
 
+
       </div>
 
 
@@ -2518,6 +3909,7 @@
         <span>
           © 2026 EVOKE MUN
         </span>
+
 
         <span>
           #forthewokes
@@ -2535,6 +3927,8 @@
        ======================================================= -->
 
   <script>
+
+
     /*
       =========================================================
       REGISTRATION LINKS
@@ -2546,22 +3940,29 @@
       Replace the values below if the registration forms change.
     */
 
+
     const REGISTRATION_LINKS = {
+
 
       INDIVIDUAL_COMMITTEE_REGISTRATION_LINK:
         "https://docs.google.com/forms/d/e/1FAIpQLSebhS7lFn5oLS9foNNQB3LcGIpeTiTXaPBXjMBjX_WTqxwbNg/viewform?usp=preview",
 
+
       DOUBLE_DELEGATION_REGISTRATION_LINK:
         "https://docs.google.com/forms/d/e/1FAIpQLSeWcdrnouXeTxkK0wQf-sq7Y9U3_tb3kXf3uRuCtgtB7x-HGg/viewform?usp=preview",
+
 
       AUCTION_COMMITTEE_REGISTRATION_LINK:
         "https://docs.google.com/forms/d/e/1FAIpQLSeWcdrnouXeTxkK0wQf-sq7Y9U3_tb3kXf3uRuCtgtB7x-HGg/viewform?usp=preview",
 
+
       RAPPORTEUR_INROOM_OC_REGISTRATION_LINK:
         "https://docs.google.com/forms/d/e/1FAIpQLSfwBuQTgvHTXq1UTTPg60XRk9JAS_29XcUd1nupZwqrhkYJFg/viewform?usp=preview",
 
+
       CAMPUS_AMBASSADOR_REGISTRATION_LINK:
         "https://docs.google.com/forms/d/e/1FAIpQLSc1eJoKq3BZ9aSzz9yoLlAtQgGbcYLI7GFHcIZJQaMBg4_NNQ/viewform?usp=preview"
+
     };
 
 
@@ -2571,7 +3972,9 @@
       =========================================================
     */
 
+
     const registrationMap = {
+
       individual:
         REGISTRATION_LINKS.INDIVIDUAL_COMMITTEE_REGISTRATION_LINK,
 
@@ -2586,7 +3989,9 @@
 
       ambassador:
         REGISTRATION_LINKS.CAMPUS_AMBASSADOR_REGISTRATION_LINK
+
     };
+
 
     document
       .querySelectorAll("[data-registration]")
@@ -2595,7 +4000,9 @@
         const type = button.dataset.registration;
 
         if (registrationMap[type]) {
+
           button.href = registrationMap[type];
+
         }
 
       });
@@ -2607,26 +4014,51 @@
       =========================================================
     */
 
-    const menuToggle = document.getElementById("menu-toggle");
-    const navigation = document.getElementById("main-navigation");
+
+    const menuToggle =
+      document.getElementById("menu-toggle");
+
+
+    const navigation =
+      document.getElementById("main-navigation");
+
 
     function closeMenu() {
+
       navigation.classList.remove("open");
+
       menuToggle.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation menu");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+      );
+
     }
+
 
     menuToggle.addEventListener("click", () => {
 
-      const isOpen = navigation.classList.toggle("open");
+      const isOpen =
+        navigation.classList.toggle("open");
 
-      menuToggle.classList.toggle("open", isOpen);
+
+      menuToggle.classList.toggle(
+        "open",
+        isOpen
+      );
+
 
       menuToggle.setAttribute(
         "aria-expanded",
         String(isOpen)
       );
+
 
       menuToggle.setAttribute(
         "aria-label",
@@ -2637,19 +4069,31 @@
 
     });
 
+
     navigation
       .querySelectorAll("a")
       .forEach((link) => {
-        link.addEventListener("click", closeMenu);
+
+        link.addEventListener(
+          "click",
+          closeMenu
+        );
+
       });
 
-    window.addEventListener("resize", () => {
 
-      if (window.innerWidth > 720) {
-        closeMenu();
+    window.addEventListener(
+      "resize",
+      () => {
+
+        if (window.innerWidth > 720) {
+
+          closeMenu();
+
+        }
+
       }
-
-    });
+    );
 
 
     /*
@@ -2658,57 +4102,87 @@
       =========================================================
     */
 
+
     const committeeTriggers =
-      document.querySelectorAll(".committee-trigger");
+      document.querySelectorAll(
+        ".committee-trigger"
+      );
 
-    committeeTriggers.forEach((trigger) => {
 
-      trigger.addEventListener("click", () => {
+    committeeTriggers.forEach(
+      (trigger) => {
 
-        const committee = trigger.closest(".committee");
-        const currentlyOpen =
-          committee.classList.contains("open");
+        trigger.addEventListener(
+          "click",
+          () => {
 
-        /*
-          Keep the committee list clean by closing other
-          committees when a new one is opened.
-        */
-
-        document
-          .querySelectorAll(".committee.open")
-          .forEach((openCommittee) => {
-
-            if (openCommittee !== committee) {
-
-              openCommittee.classList.remove("open");
-
-              const openTrigger =
-                openCommittee.querySelector(
-                  ".committee-trigger"
-                );
-
-              openTrigger.setAttribute(
-                "aria-expanded",
-                "false"
+            const committee =
+              trigger.closest(
+                ".committee"
               );
-            }
-
-          });
 
 
-        committee.classList.toggle(
-          "open",
-          !currentlyOpen
+            const currentlyOpen =
+              committee.classList.contains(
+                "open"
+              );
+
+
+            /*
+              Keep the committee list clean by closing other
+              committees when a new one is opened.
+            */
+
+
+            document
+              .querySelectorAll(
+                ".committee.open"
+              )
+              .forEach(
+                (openCommittee) => {
+
+                  if (
+                    openCommittee !== committee
+                  ) {
+
+                    openCommittee.classList.remove(
+                      "open"
+                    );
+
+
+                    const openTrigger =
+                      openCommittee.querySelector(
+                        ".committee-trigger"
+                      );
+
+
+                    openTrigger.setAttribute(
+                      "aria-expanded",
+                      "false"
+                    );
+
+                  }
+
+                }
+              );
+
+
+            committee.classList.toggle(
+              "open",
+              !currentlyOpen
+            );
+
+
+            trigger.setAttribute(
+              "aria-expanded",
+              String(!currentlyOpen)
+            );
+
+          }
         );
 
-        trigger.setAttribute(
-          "aria-expanded",
-          String(!currentlyOpen)
-        );
-
-      });
-
-    });
+      }
+    );
 
 
     /*
@@ -2717,35 +4191,56 @@
       =========================================================
     */
 
+
     const revealElements =
-      document.querySelectorAll(".reveal");
+      document.querySelectorAll(
+        ".reveal"
+      );
+
 
     const revealObserver =
       new IntersectionObserver(
         (entries, observer) => {
 
-          entries.forEach((entry) => {
+          entries.forEach(
+            (entry) => {
 
-            if (entry.isIntersecting) {
+              if (
+                entry.isIntersecting
+              ) {
 
-              entry.target.classList.add("visible");
+                entry.target.classList.add(
+                  "visible"
+                );
 
-              observer.unobserve(entry.target);
+
+                observer.unobserve(
+                  entry.target
+                );
+
+              }
 
             }
-
-          });
+          );
 
         },
         {
           threshold: 0.08,
-          rootMargin: "0px 0px -30px 0px"
+          rootMargin:
+            "0px 0px -30px 0px"
         }
       );
 
-    revealElements.forEach((element) => {
-      revealObserver.observe(element);
-    });
+
+    revealElements.forEach(
+      (element) => {
+
+        revealObserver.observe(
+          element
+        );
+
+      }
+    );
 
 
     /*
@@ -2754,72 +4249,104 @@
       =========================================================
     */
 
-    document.addEventListener("keydown", (event) => {
 
-      if (event.key === "Escape") {
+    document.addEventListener(
+      "keydown",
+      (event) => {
 
-        closeMenu();
+        if (
+          event.key === "Escape"
+        ) {
 
-        document
-          .querySelectorAll(".committee.open")
-          .forEach((committee) => {
+          closeMenu();
 
-            committee.classList.remove("open");
 
-            const trigger =
-              committee.querySelector(".committee-trigger");
+          document
+            .querySelectorAll(
+              ".committee.open"
+            )
+            .forEach(
+              (committee) => {
 
-            trigger.setAttribute(
-              "aria-expanded",
-              "false"
+                committee.classList.remove(
+                  "open"
+                );
+
+
+                const trigger =
+                  committee.querySelector(
+                    ".committee-trigger"
+                  );
+
+
+                trigger.setAttribute(
+                  "aria-expanded",
+                  "false"
+                );
+
+              }
             );
 
-          });
+        }
 
       }
-
-    });
+    );
 
 
     /*
       =========================================================
       SMOOTH INTERNAL LINKS
       =========================================================
-
-      Native CSS smooth scrolling already handles this, but
-      this prevents navigation jumps in older browsers.
     */
 
+
     document
-      .querySelectorAll('a[href^="#"]')
-      .forEach((link) => {
+      .querySelectorAll(
+        'a[href^="#"]'
+      )
+      .forEach(
+        (link) => {
 
-        link.addEventListener("click", (event) => {
+          link.addEventListener(
+            "click",
+            (event) => {
 
-          const targetId =
-            link.getAttribute("href");
+              const targetId =
+                link.getAttribute(
+                  "href"
+                );
 
-          if (
-            targetId &&
-            targetId !== "#" &&
-            document.querySelector(targetId)
-          ) {
 
-            event.preventDefault();
+              if (
+                targetId &&
+                targetId !== "#" &&
+                document.querySelector(
+                  targetId
+                )
+              ) {
 
-            document
-              .querySelector(targetId)
-              .scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-              });
+                event.preventDefault();
 
-          }
 
-        });
+                document
+                  .querySelector(
+                    targetId
+                  )
+                  .scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                  });
 
-      });
+              }
+
+            }
+          );
+
+        }
+      );
+
   </script>
 
 </body>
+
 </html>
